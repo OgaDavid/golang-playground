@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	steps := CollatzCountdown(12)
-	fmt.Println(steps)
+	middle := Abort(2, 3, 8, 5, 7)
+	fmt.Println(middle)
 }
