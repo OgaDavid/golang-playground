@@ -1,14 +1,24 @@
 package main
 
 import (
-	"github.com/01-edu/z01"
+	"fmt"
 )
 
-func main() {
-	result := Rot14("Hello! How are You?")
+const N = 6
 
-	for _, r := range result {
-		z01.PrintRune(r)
+func main() {
+	a := make([]string, N)
+	a[0] = "a"
+	a[2] = "b"
+	a[4] = "c"
+
+	for _, v := range a {
+		fmt.Println(v)
 	}
-	z01.PrintRune('\n')
+
+	fmt.Println("Size after compacting:", Compact(&a))
+
+	for _, v := range a {
+		fmt.Println(v)
+	}
 }
