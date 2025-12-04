@@ -1,24 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
-
-const N = 6
-
 func main() {
-	a := make([]string, N)
-	a[0] = "a"
-	a[2] = "b"
-	a[4] = "c"
-
-	for _, v := range a {
-		fmt.Println(v)
-	}
-
-	fmt.Println("Size after compacting:", Compact(&a))
-
-	for _, v := range a {
-		fmt.Println(v)
-	}
+	deck := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
+	DealAPackOfCards(deck)
 }
