@@ -27,6 +27,10 @@ func (list *SingleLinkedList) insertFirst(val int) {
 }
 
 func (list *SingleLinkedList) deleteFirst() int {
+	if list.Head == nil {
+		panic("cannot delete from an empty list")
+	}
+
 	val := list.Head.Data
 	list.Head = list.Head.Next
 
@@ -83,9 +87,10 @@ func (list *SingleLinkedList) insert(val, pos int) {
 }
 
 func (list *SingleLinkedList) displayList() {
-	for list.Head != nil {
-		fmt.Printf("%d -> ", list.Head.Data)
-		list.Head = list.Head.Next
+	temp := list.Head
+	for temp != nil {
+		fmt.Printf("%d -> ", temp.Data)
+		temp = temp.Next
 	}
 
 	fmt.Println("END")
@@ -101,5 +106,7 @@ func main() {
 	numbersList.insertLast(15)
 	numbersList.insert(7, 2)
 
+	numbersList.displayList()
+	fmt.Println(numbersList.deleteFirst())
 	numbersList.displayList()
 }
