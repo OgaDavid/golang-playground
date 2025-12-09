@@ -85,7 +85,7 @@ func (list *SingleLinkedList) deleteLast() int {
 func (list *SingleLinkedList) insert(val, pos int) {
 	node := &Node{Data: val}
 
-	if pos < 0 || pos > list.Size {
+	if pos < 0 || pos >= list.Size {
 		panic("position out of range")
 	}
 
@@ -94,7 +94,7 @@ func (list *SingleLinkedList) insert(val, pos int) {
 		return
 	}
 
-	if pos == list.Size {
+	if pos == list.Size-1 {
 		list.insertLast(val)
 		return
 	}
@@ -109,6 +109,51 @@ func (list *SingleLinkedList) insert(val, pos int) {
 	tempNode.Next = node
 	node.Next = holdNext
 	list.Size++
+}
+
+func (list *SingleLinkedList) delete(pos int) int {
+	if pos < 0 || pos >= list.Size {
+		panic("position out of range")
+	}
+
+	if pos == 0 {
+		val := list.Head.Data
+		list.deleteFirst()
+		return val
+	}
+
+	if pos == list.Size-1 {
+		val := list.Tail.Data
+		list.deleteLast()
+		return val
+	}
+
+	prevNode := list.Head
+
+	for i := 0; i < pos-1; i++ {
+		prevNode = prevNode.Next
+	}
+
+	toDelete := prevNode.Next
+	val := toDelete.Data
+
+	prevNode.Next = toDelete.Next
+	list.Size--
+
+	return val
+}
+
+func (list *SingleLinkedList) findByValue(val int) *Node {
+	node := list.Head
+
+	for node != nil {
+		if node.Data == val {
+			return node
+		}
+		node = node.Next
+	}
+
+	return nil
 }
 
 func (list *SingleLinkedList) displayList() {
@@ -132,6 +177,11 @@ func main() {
 	numbersList.insert(7, 2)
 
 	numbersList.displayList()
-	fmt.Println(numbersList.deleteFirst())
+	fmt.Printf("Delete First: %d\n", numbersList.deleteFirst())
+	fmt.Printf("Delete Last: %d\n", numbersList.deleteLast())
 	numbersList.displayList()
+	fmt.Printf("Delete at Index 2: %d\n", numbersList.delete(2))
+	numbersList.displayList()
+	fmt.Printf("Node with data 2: %v\n", numbersList.findByValue(2))
+
 }
