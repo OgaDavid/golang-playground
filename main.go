@@ -5,10 +5,8 @@ import (
 )
 
 func main() {
-	fmt.Println(CamelToSnakeCase("HelloWorld"))
-	fmt.Println(CamelToSnakeCase("helloWorld"))
-	fmt.Println(CamelToSnakeCase("camelCase"))
-	fmt.Println(CamelToSnakeCase("CAMELtoSnackCASE"))
-	fmt.Println(CamelToSnakeCase("camelToSnakeCase"))
-	fmt.Println(CamelToSnakeCase("hey2"))
+	fmt.Println(DigitLen(100, 10))
+	fmt.Println(DigitLen(100, 2))
+	fmt.Println(DigitLen(-100, 16))
+	fmt.Println(DigitLen(100, -1))
 }
