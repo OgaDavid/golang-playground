@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	fmt.Println(DigitLen(100, 10))
-	fmt.Println(DigitLen(100, 2))
-	fmt.Println(DigitLen(-100, 16))
-	fmt.Println(DigitLen(100, -1))
+    fmt.Print(FirstWord("hello there"))
+    fmt.Print(FirstWord(""))
+    fmt.Print(FirstWord("hello   .........  bye"))
 }
