@@ -1,5 +1,12 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
-	Union()
+	fmt.Println(RepeatAlpha("abc"))
+	fmt.Println(RepeatAlpha("Choumi."))
+	fmt.Println(RepeatAlpha(""))
+	fmt.Println(RepeatAlpha("abacadaba 01!"))
 }
